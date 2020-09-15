@@ -28,10 +28,6 @@ class Stack {
     }
 }
 
-let myStack = new Stack();
-console.log(myStack.isEmpty());
-myStack.peek();
-
 // Queue Class
 class Queue {
     // There must be an array to represent the queue and it will initialize empty
@@ -41,11 +37,29 @@ class Queue {
 
     // Queues typically are built with the following methods
     // 1) Enqueue method adds to the back of the queue
-    enqueue() {
-        
+    enqueue(item) {
+        this.queue.push(item);
+    }
+
+    // 2) Dequeue method removes from the front of the queue
+    dequeue() {
+        if(!this.isEmpty()) {
+            delete this.queue[0];
+        }
+    }
+
+    // 3) Front logs the element at the front of the queue
+    front() {
+        console.log(this.queue[0]);
+    }
+
+    // 4) isEmpty return true if the queue is empty
+    isEmpty() {
+        return this.queue.length === 0;
+    }
+
+    // 5) printQueue returns a string of items in the queue separated by commas
+    printQueue() {
+        return this.queue.toString();
     }
 }
-// 2) Dequeue method removes from the front of the queue
-// 3) Front logs the element at the front of the queue
-// 4) isEmpty return true if the queue is empty
-// 5) printQueue returns a string of items in the queue separated by commas
